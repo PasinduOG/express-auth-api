@@ -4,11 +4,12 @@
   <img src="https://img.shields.io/badge/express-v5.1.0-green" alt="Express Version" />
   <img src="https://img.shields.io/badge/sequelize-v6.37.7-blue" alt="Sequelize Version" />
   <img src="https://img.shields.io/badge/mysql2-v3.14.1-orange" alt="MySQL2 Version" />
+  <img src="https://img.shields.io/badge/bcryptjs-v3.0.2-purple" alt="bcryptjs Version" />
   <img src="https://img.shields.io/badge/license-MIT-yellow" alt="License" />
 </div><br/>
 
 <p align="start">
-  A robust RESTful API for user authentication built with Express.js and MySQL, featuring secure password hashing and a clean architecture.
+  A RESTful API for user authentication built with Express.js and MySQL, featuring secure password hashing with bcryptjs.
 </p>
 
 ## 📋 Table of Contents
@@ -21,17 +22,15 @@
 - [API Endpoints](#-api-endpoints)
 - [Example Requests](#-example-requests)
 - [Database Schema](#-database-schema)
-- [Contributing](#-contributing)
 - [License](#-license)
 - [Contact](#-contact)
 
 ## ✨ Features
 
-- 🔐 Secure user registration and authentication
-- 🔒 Password hashing with bcrypt
-- 📦 Clean MVC architecture
+- 🔐 Secure user registration
+- 🔒 Password hashing with bcryptjs
+- 📦 MVC architecture
 - 🔄 MySQL database integration with Sequelize ORM
-- 📝 Well-organized codebase for easy maintenance and scalability
 
 ## 📂 Project Structure
 
@@ -45,19 +44,20 @@ express-auth-api/
 │   └── User.js           // User database model
 ├── routes/
 │   └── userRoutes.js     // API route definitions
-├── knexfile.js           // Knex configuration
 ├── server.js             // Express server setup
 ├── package.json          // Project dependencies
+├── LICENSE               // MIT license
 └── README.md             // Project documentation
 ```
 
 ## 🛠 Technologies Used
 
-- **[Express.js](https://expressjs.com/)** - Fast, unopinionated, minimalist web framework for Node.js
-- **[Sequelize](https://sequelize.org/)** - Modern TypeScript and Node.js ORM for MySQL
-- **[MySQL2](https://github.com/sidorares/node-mysql2)** - MySQL client for Node.js with focus on performance
-- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js)** - Password hashing function
-- **[dotenv](https://github.com/motdotla/dotenv)** - Environment variable management
+- **[Express.js](https://expressjs.com/) v5.1.0** - Fast, unopinionated web framework for Node.js
+- **[Sequelize](https://sequelize.org/) v6.37.7** - Modern ORM for MySQL
+- **[MySQL2](https://github.com/sidorares/node-mysql2) v3.14.1** - MySQL client for Node.js
+- **[bcryptjs](https://github.com/dcodeIO/bcrypt.js) v3.0.2** - Password hashing function
+- **[dotenv](https://github.com/motdotla/dotenv) v16.5.0** - Environment variable management
+- **[body-parser](https://github.com/expressjs/body-parser) v2.2.0** - Request body parsing middleware
 
 ## 📥 Installation
 
@@ -83,7 +83,7 @@ express-auth-api/
 
 5. **Start the server**
    ```bash
-   npm start
+   node server.js
    ```
    
 6. **Test the API**
@@ -99,14 +99,13 @@ DB_HOST=localhost
 DB_USER=root
 DB_PASS=your_password
 DB_NAME=express_auth
-PORT=3000
 ```
 
 ## 🌐 API Endpoints
 
-| Method | Endpoint            | Description           | Request Body                                    |
-|--------|---------------------|-----------------------|------------------------------------------------|
-| POST   | `/api/users/register` | Register a new user   | `{ username, email, password }`                 |
+| Method | Endpoint            | Description           | Request Body                               |
+|--------|---------------------|-----------------------|-------------------------------------------|
+| POST   | `/api/users/register` | Register a new user   | `{ username, email, password }`            |
 
 ## 📝 Example Requests
 
@@ -125,10 +124,7 @@ Content-Type: application/json
 
 **Success Response:**
 ```json
-{
-  "message": "User registered successfully",
-  "userId": 1
-}
+"User registered!"
 ```
 
 ## 📊 Database Schema
@@ -138,19 +134,11 @@ Content-Type: application/json
 | Column    | Type         | Constraints            |
 |-----------|--------------|------------------------|
 | id        | INT          | PRIMARY KEY, AUTO_INCREMENT |
-| username  | VARCHAR(255) | UNIQUE, NOT NULL       |
-| email     | VARCHAR(255) | UNIQUE, NOT NULL       |
-| password  | VARCHAR(255) | NOT NULL               |
-| createdAt | DATETIME     | NOT NULL               |
-| updatedAt | DATETIME     | NOT NULL               |
-
-## 👥 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+| username  | VARCHAR(255) | UNIQUE                 |
+| email     | VARCHAR(255) | UNIQUE                 |
+| password  | VARCHAR(255) |                        |
+| createdAt | DATETIME     |                        |
+| updatedAt | DATETIME     |                        |
 
 ## 📄 License
 
@@ -160,14 +148,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 Pasindu Madhuwantha - [@PasinduOG](https://github.com/PasinduOG)
 
-Project Link: [https://github.com/PasinduOG/express-auth-api](https://github.com/PasinduOG/express-auth-api)
-
 ---
 
 <div align="center">
-  <p>
-    If you found this project helpful, please consider giving it a ⭐!
-  </p>
   <p>
     © 2025 Pasindu Madhuwantha. All rights reserved.
   </p>
