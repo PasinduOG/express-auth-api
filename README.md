@@ -1,13 +1,13 @@
 # Express MySQL Authentication API
 
-<div align="center">
+<div align="start">
   <img src="https://img.shields.io/badge/express-v5.1.0-green" alt="Express Version" />
   <img src="https://img.shields.io/badge/sequelize-v6.37.7-blue" alt="Sequelize Version" />
   <img src="https://img.shields.io/badge/mysql2-v3.14.1-orange" alt="MySQL2 Version" />
   <img src="https://img.shields.io/badge/license-MIT-yellow" alt="License" />
-</div>
+</div><br/>
 
-<p align="center">
+<p align="start">
   A robust RESTful API for user authentication built with Express.js and MySQL, featuring secure password hashing and a clean architecture.
 </p>
 
